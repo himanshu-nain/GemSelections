@@ -602,33 +602,19 @@ public class MainActivity extends AppCompatActivity
 
             case tech.iosd.gemselections.R.id.nav_call:
 
+                final String[] phone = {"+919213932017","+919999136878"};
+
                 new AlertDialog.Builder(MainActivity.this)
-                        .setMessage("Which number to open in dialer?")
-                        .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+                        .setTitle("Which number to open in dialer?")
+                        .setItems(phone, new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .setPositiveButton("+919213932017", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                            public void onClick(DialogInterface dialogInterface, int i) {
                                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                                intent.setData(Uri.parse("tel:" + Uri.encode("+919213932017")));
+                                intent.setData(Uri.parse("tel:" + Uri.encode(phone[i])));
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                             }
-                        })
-                        .setNegativeButton("+919999136878", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(Intent.ACTION_DIAL);
-                                intent.setData(Uri.parse("tel:" + Uri.encode("+919999136878")));
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                            }
-                        })
-                        .create().show();
+                        }).create().show();
 
                 break;
 
