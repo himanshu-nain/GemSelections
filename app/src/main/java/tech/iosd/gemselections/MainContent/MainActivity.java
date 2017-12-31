@@ -605,7 +605,8 @@ public class MainActivity extends AppCompatActivity
                 final String[] phone = {"+919213932017","+919999136878"};
 
                 new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Which number to open in dialer?")
+                        .setIcon(R.drawable.ic_call)
+                        .setTitle("Click on the phone number to open in dialer..")
                         .setItems(phone, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
