@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android" />
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/dina_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="DINA"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/dina_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/dina_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/dina_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dina_description"
+            android:layout_below="@+id/dina_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_dina_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_dina_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/male_koot_atri_val"
+            android:layout_toRightOf="@+id/male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/female_koot_atri_val"
+            android:layout_toRightOf="@+id/female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        //gana
+
+        <TextView
+            android:layout_below="@+id/female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/gana_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="GANA"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/gana_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/gana_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/gana_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_gana_description"
+            android:layout_below="@+id/gana_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_gana_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/gana_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_gana_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/gana_male_koot_atri_val"
+            android:layout_toRightOf="@+id/gana_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gana_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/gana_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gana_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/gana_female_koot_atri_val"
+            android:layout_toRightOf="@+id/gana_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+
+        //yoni
+
+        <TextView
+            android:layout_below="@+id/gana_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/yoni_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="YONI"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/yoni_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/yoni_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/yoni_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_yoni_description"
+            android:layout_below="@+id/yoni_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_yoni_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/yoni_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_yoni_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/yoni_male_koot_atri_val"
+            android:layout_toRightOf="@+id/yoni_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/yoni_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/yoni_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/yoni_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/yoni_female_koot_atri_val"
+            android:layout_toRightOf="@+id/yoni_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+        //rashi
+
+        <TextView
+            android:layout_below="@+id/yoni_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rashi_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="RASHI"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/rashi_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/rashi_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/rashi_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rashi_description"
+            android:layout_below="@+id/rashi_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_rashi_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rashi_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_rashi_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rashi_male_koot_atri_val"
+            android:layout_toRightOf="@+id/rashi_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rashi_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/rashi_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rashi_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/rashi_female_koot_atri_val"
+            android:layout_toRightOf="@+id/rashi_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+        //rasyadhipati
+
+        <TextView
+            android:layout_below="@+id/rashi_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rasyadhipati_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="RASYADHIPATI"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/rasyadhipati_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/rasyadhipati_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/rasyadhipati_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rasyadhipati_description"
+            android:layout_below="@+id/rasyadhipati_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_rasyadhipati_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rasyadhipati_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_rasyadhipati_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rasyadhipati_male_koot_atri_val"
+            android:layout_toRightOf="@+id/rasyadhipati_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rasyadhipati_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/rasyadhipati_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rasyadhipati_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/rasyadhipati_female_koot_atri_val"
+            android:layout_toRightOf="@+id/rasyadhipati_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+        //rajju
+
+        <TextView
+            android:layout_below="@+id/rasyadhipati_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rajju_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="RAJJU"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/rajju_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/rajju_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/nadi_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_rajju_description"
+            android:layout_below="@+id/rajju_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_rajju_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rajju_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_rajju_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rajju_male_koot_atri_val"
+            android:layout_toRightOf="@+id/rajju_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rajju_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/rajju_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rajju_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/rajju_female_koot_atri_val"
+            android:layout_toRightOf="@+id/rajju_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+        //vedha
+        <TextView
+            android:layout_below="@+id/rajju_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/vedha_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="VEDHA"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/vedha_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/vedha_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/vedha_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_vedha_description"
+            android:layout_below="@+id/vedha_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_vedha_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/vedha_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_vedha_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/vedha_male_koot_atri_val"
+            android:layout_toRightOf="@+id/vedha_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vedha_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/vedha_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vedha_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/vedha_female_koot_atri_val"
+            android:layout_toRightOf="@+id/vedha_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+        //vashya
+
+        <TextView
+            android:layout_below="@+id/vedha_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/vashya_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="VASHYA"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/vashya_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/vashya_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/vashya_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_vashya_description"
+            android:layout_below="@+id/vashya_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_vashya_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/vashya_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_vashya_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/vashya_male_koot_atri_val"
+            android:layout_toRightOf="@+id/vashya_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vashya_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/vashya_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vashya_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/vashya_female_koot_atri_val"
+            android:layout_toRightOf="@+id/vashya_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+        //mahendra
+
+        <TextView
+            android:layout_below="@+id/vashya_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/mahendra_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="MAHENDRA"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/mahendra_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/mahendra_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/mahendra_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_mahendra_description"
+            android:layout_below="@+id/mahendra_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_mahendra_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/mahendra_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_mahendra_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/mahendra_male_koot_atri_val"
+            android:layout_toRightOf="@+id/mahendra_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mahendra_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/mahendra_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mahendra_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/mahendra_female_koot_atri_val"
+            android:layout_toRightOf="@+id/mahendra_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+        //streedeergha
+
+        <TextView
+            android:layout_below="@+id/mahendra_female_koot_atri"
+            android:layout_marginTop="10dp"
+            android:id="@+id/streedeergha_heading"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="STREEDEERGHA"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : -"
+            android:id="@+id/streedeergha_des"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@+id/streedeergha_heading"/>
+        <TextView
+            android:layout_toRightOf="@+id/streedeergha_des"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_streedeergha_description"
+            android:layout_below="@+id/streedeergha_heading"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_streedeergha_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/streedeergha_male_koot_atri"
+            android:text="Male Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_streedeergha_description"
+            android:layout_marginTop="5dp"
+            android:id="@+id/streedeergha_male_koot_atri_val"
+            android:layout_toRightOf="@+id/streedeergha_male_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/streedeergha_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/streedeergha_female_koot_atri"
+            android:text="Female Koot Attribute : "
+            android:textColor="#000"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/streedeergha_male_koot_atri"
+            android:layout_marginTop="15dp"
+            android:id="@+id/streedeergha_female_koot_atri_val"
+            android:layout_toRightOf="@+id/streedeergha_female_koot_atri"
+            android:textColor="#000"
+            android:textSize="15dp"/>
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+</ScrollView>

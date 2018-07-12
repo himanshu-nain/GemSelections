@@ -12,6 +12,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -21,8 +22,13 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import java.util.ArrayList;
+
+import tech.iosd.gemselections.Adapters.BannerArrayAdapter;
+import tech.iosd.gemselections.JewelleryAlpha.DiamondStudded.DiamondStudded;
 import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Utils.Banner;
 
 /**
  * Created by anonymous on 28/8/17.
@@ -30,7 +36,9 @@ import tech.iosd.gemselections.R;
 
 public class DiamondActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
-    private String[] items = {"Diamond Sets","Diamond Pendants", "Diamond Tops","Diamond Rings","Diamond Bracelets","Diamond Nose Pins","Diamond Studs"};
+   // private String[] items = {,"Diamond Pendants", "Diamond Tops","Diamond Rings","Diamond Bracelets","Diamond Nose Pins","Diamond Studs"};
+
+    private ArrayList<Banner> arraylist = new ArrayList<Banner>();
 
     private YouTubePlayerView playerView;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
@@ -42,17 +50,31 @@ public class DiamondActivity extends YouTubeBaseActivity implements YouTubePlaye
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diamond);
 
-        ListView listView;
-        ArrayAdapter<String> arrayAdapter;
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_sets),"Diamond Sets"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_pendants),"Diamond Pendants"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_tops),"Diamond Tops"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_rings),"Diamond Rings"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_bracelets),"Diamond Bracelets"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_nose_pin),"Diamond Nose Pins"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_studs),"Diamond Studs"));
+        arraylist.add(new Banner( getDrawable(R.drawable.diamond_accessories),"Diamond Studded"));
+
+
+        GridView gridView;
+        //ArrayAdapter<String> arrayAdapter;
+        BannerArrayAdapter arrayAdapter= new  BannerArrayAdapter(this,arraylist);
 
         playerView = (YouTubePlayerView)findViewById(R.id._diamond_video);
         playerView.initialize(DEVELOPER_KEY, this);
 
-        listView = (ListView)findViewById(R.id.diamond_list);
-        arrayAdapter = new ArrayAdapter<String>(DiamondActivity.this, android.R.layout.simple_list_item_1, items);
-        listView.setAdapter(arrayAdapter);
+        gridView = (GridView) findViewById(R.id.diamond_grid_view);
+       //arrayAdapter = new ArrayAdapter<String>(DiamondActivity.this, R.layout.layout_banner, items);
+        gridView.setAdapter(arrayAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
@@ -103,6 +125,11 @@ public class DiamondActivity extends YouTubeBaseActivity implements YouTubePlaye
                         startActivity(new Intent(
                                 DiamondActivity.this, DiamondStuds.class
                         ));
+
+                        break;
+                    case 7:
+
+                        startActivity(new Intent(DiamondActivity.this , DiamondStudded.class));
 
                         break;
                 }

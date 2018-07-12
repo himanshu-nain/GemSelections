@@ -33,52 +33,60 @@
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
+                android:id="@+id/diamond_solitare_ring"
                 android:layout_width="0dp"
-                android:layout_weight=".5"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:layout_weight=".5">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
-                        android:textAlignment="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:textSize="16sp"
+                        android:text="SOLITARE RINGS"
+                        android:textAlignment="center"
                         android:textColor="#000"
-                        android:text="SOLITARE RINGS" />
+                        android:textSize="16sp" />
+
                     <ImageView
                         android:id="@+id/diamondring"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp" />
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:id="@+id/diamond_loose_solitare"
                 android:layout_width="0dp"
-                android:layout_weight=".5"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:layout_weight=".5">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
-                        android:textAlignment="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:textSize="16sp"
+                        android:text="LOOSE SOLITARES"
+                        android:textAlignment="center"
                         android:textColor="#000"
-                        android:text="LOOSE SOLITARES" />
+                        android:textSize="16sp" />
+
                     <ImageView
                         android:id="@+id/diamond"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp" />
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 

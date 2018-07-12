@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import tech.iosd.gemselections.MainContent.MainActivity;
+import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Rudraksha.Rudraksha;
 import tech.iosd.gemselections.Utils.WebViewActivity;
 
 public class Handicrafts extends AppCompatActivity
@@ -48,6 +50,13 @@ public class Handicrafts extends AppCompatActivity
                                     .putExtra("parent","Handicrafts")
                     );
                 return true;
+            case R.id.ac_hand_home :
+                startActivity(
+                        new Intent(Handicrafts.this, MainActivity.class)
+                );
+                finish();
+                return true;
+
         }
         return super.onOptionsItemSelected(item);
     }

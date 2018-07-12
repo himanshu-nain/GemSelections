@@ -5,83 +5,110 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="Precious Gemstones"/>
+            android:title="Precious Gemstones" />
         <item
-        android:id="@+id/nav_diamond"
-        android:icon="@drawable/ic_diamond"
-        android:title="Diamond"/>
+            android:id="@+id/nav_diamond"
+            android:icon="@drawable/ic_diamond"
+            android:title="Diamond" />
         <item
             android:id="@+id/nav_jewel"
             android:icon="@drawable/ic_jewel"
-            android:title="Jewellery"/>
+            android:title="Jewellery" />
         <item
             android:id="@+id/nav_semi_precious_gems"
             android:icon="@drawable/ic_semiprecious"
-            android:title="Semi Precious Gemstones"/>
+            android:title="Semi Precious Gemstones" />
         <item
-            android:icon="@drawable/ic_triangle"
             android:id="@+id/nav_triangular_gems"
-            android:title="Triangular Gemstones"/>
+            android:icon="@drawable/ic_triangle"
+            android:title="Triangular Gemstones" />
+        <item
+            android:id="@+id/nav_daily_recommendations"
+            android:icon="@drawable/ic_daily_recommendations"
+            android:title="Daily Recommendations" />
 
+        <item android:title="Abhimantrit"
+            android:id="@+id/nav_abhimantrit"
+            android:icon="@drawable/ic_info"/>
+        <item
+            android:id="@+id/nav_daily_horoscopes"
+            android:icon="@drawable/ic_daily_recommendations"
+            android:title="Daily Horoscopes"/>
         <item
             android:id="@+id/nav_cabochon_gems"
             android:icon="@drawable/ic_cabochon"
-            android:title="Cabochon Gemstones"/>
+            android:title="Cabochon Gemstones" />
         <item
             android:id="@+id/nav_birthstone"
             android:icon="@drawable/ic_birthstone"
-            android:title="Birthstones"/>
+            android:title="Birthstones" />
         <item
             android:id="@+id/nav_astro"
             android:icon="@drawable/ic_gemstonesandastrology"
-            android:title="GemStones and Astrology "/>
+            android:title="GemStones and Astrology " />
+        <item
+            android:id="@+id/nav_astro_remedies"
+            android:icon="@drawable/ic_gemstonesandastrology"
+            android:title="Astrological Remedies " />
         <item
             android:id="@+id/gemstone_recommendation"
             android:icon="@drawable/ic_gem_recommendation"
-            android:title="Gemstone Recommendation"/>
+            android:title="Gemstone Recommendation" />
         <item
             android:id="@+id/nav_rudraksha"
             android:icon="@drawable/ic_rudraksha"
-            android:title="Rudraksha"/>
+            android:title="Rudraksha" />
         <item
             android:id="@+id/nav_handicrafts"
             android:icon="@drawable/ic_handicrafts"
-            android:title="Khanna Handicrafts"/>
+            android:title="Khanna Handicrafts" />
         <item
             android:id="@+id/nav_ittar"
             android:icon="@drawable/ic_ittr"
-            android:title="Khanna Perfumeries"/>
+            android:title="Khanna Perfumeries" />
         <item
             android:id="@+id/nav_stoneidols"
             android:icon="@drawable/ic_stoneidol"
-            android:title="Stone Idols"/>
+            android:title="Stone Idols" />
 
         <item
             android:id="@+id/nav_yantra"
             android:icon="@drawable/ic_yantra"
-            android:title="Yantra"/>
+            android:title="Yantra" />
 
         <item
             android:id="@+id/nav_saphatic"
             android:icon="@drawable/ic_saphatikitems"
-            android:title="Saphatic Items"/>
+            android:title="Saphatic Items" />
 
         <item
             android:id="@+id/nav_japamala"
             android:icon="@drawable/ic_japa_mala"
-            android:title="Japa Mala"/>
+            android:title="Japa Mala" />
 
         <item
             android:id="@+id/nav_kavach"
             android:icon="@drawable/ic_kavach"
-            android:title="Kavach"/>
-
+            android:title="Kavach" />
+        <item
+            android:id="@+id/nav_sarva_mannokaamna_prapti_yugal"
+            android:icon="@drawable/ic_yugal"
+            android:title="Sarva Mannokaamna Prapti Yugal" />
 
 
         <item
             android:id="@+id/nav_faq"
             android:icon="@drawable/ic_info"
-            android:title="Frequently Asked Ques."/>
+            android:title="Frequently Asked Ques." />
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_forum"
+
+            android:title="Join the Gem Selections™ Forums blah blah balafdsjfioasiodfhdhioihdiohasdfhsdfoiasdhfasdiofhios" />
+        <item
+            android:id="@+id/nav_live"
+            android:icon="@drawable/ic_live"
+            android:title="Watch Gem Selections™ LIVE" />
     </group>
 
     <item android:title="Contact Us">
@@ -89,40 +116,38 @@
             <item
                 android:id="@+id/nav_connect"
                 android:icon="@drawable/ic_connect"
-                android:title="Connect With Us"
-                />
+                android:title="Connect With Us" />
             <item
                 android:id="@+id/nav_call"
                 android:icon="@drawable/ic_call"
-                android:title="Call Us"/>
+                android:title="Call Us" />
             <item
                 android:id="@+id/nav_mail"
                 android:icon="@drawable/ic_email"
-                android:title="Mail Us"/>
+                android:title="Mail Us" />
             <item
                 android:id="@+id/nav_visit"
                 android:icon="@drawable/ic_store"
-                android:title="Visit Us"/>
+                android:title="Visit Us" />
             <!--<item-->
-                <!--android:id="@+id/nav_devInfo"-->
-                <!--android:icon="@drawable/ic_developer"-->
-                <!--android:title="Developer Information"/>-->
+            <!--android:id="@+id/nav_devInfo"-->
+            <!--android:icon="@drawable/ic_developer"-->
+            <!--android:title="Developer Information"/>-->
 
 
         </menu>
     </item>
 
-    <item
-        android:title="Spread The Word!">
+    <item android:title="Spread The Word!">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@android:drawable/ic_menu_share"
-                android:title="Share"/>
+                android:title="Share" />
             <item
                 android:id="@+id/nav_rate"
-                android:title="Rate App"
-                android:icon="@drawable/ic_star"/>
+                android:icon="@drawable/ic_star"
+                android:title="Rate App" />
         </menu>
     </item>
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.youtube.player.YouTubePlayerView android:layout_gravity="center_horizontal" android:id="@+id/panna_video" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_marginTop="20.0dip" android:layout_marginBottom="20.0dip" />
+            <TextView android:id="@+id/panna_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_marginTop="20.0dip" android:text="At Gem Selections: Khanna Gems, our entire inventory after being certified by Govt. Lab is Abhimantarit, i.e Pranna Pratisttha Puja is done for each and every Gemstone. Its believed in Vedic Astrology Gemstones provides Astrological benefits only after proper Abhimantaran.\\n \\n Gemstones are abhimantrit  in order to purify the gemstone and remove all the negative energies from it. It is essential to abhimantrit every gemstone as it travels through a lot of procedures like mining, cutting, packaging, testing, cargo, etc ,before reaching the wearer, there are chances that the gemstone may get some negative energies transferred to it.Therefore it is very important to purify it and make it ready to give only the positive results.  At Gem Selections: Khanna Gems, our entire inventory after being certified by Govt. Lab is Abhimantarit, i.e Pranna Pratisttha Puja is done for each and every Gemstone." />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

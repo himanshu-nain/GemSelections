@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_western_astrology"
+        android:title="Western Astrology" />
+    <item
+        android:id="@+id/nav_vedic_astrology"
+        android:title="Vedic Astrology" />
+    <item
+        android:id="@+id/nav_daily_horoscopes"
+        android:title="Daily Horoscopes" />
+
+    <item
+        android:id="@+id/nav_match_making"
+        android:title="Match Making" />
+
+    <item
+        android:id="@+id/nav_hindu_calendar"
+        android:title="Hindu Calendar" />
+    <!--<item-->
+    <!--android:id="@+id/nav_send"-->
+    <!--android:title="Send" />-->
+
+</menu>

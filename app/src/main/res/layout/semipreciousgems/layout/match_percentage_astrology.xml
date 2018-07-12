@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="MATCH PERCENTAGE"
+        android:textColor="#000"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:background="@color/colorPrimary"/>
+    //ashtakoota
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ashtakoota Match Percentage : "
+        android:id="@+id/ashtakoota_perc"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_below="@+id/heading"/>
+
+
+    <TextView
+        android:layout_toRightOf="@+id/ashtakoota_perc"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ashtakoota_per_val"
+        android:layout_below="@+id/heading"
+        android:layout_marginTop="15dp"/>
+    //manglik_match_percentage
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manglik Match Percentage : "
+        android:id="@+id/manglik_perc"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_below="@+id/ashtakoota_perc"/>
+
+
+    <TextView
+        android:layout_toRightOf="@+id/manglik_perc"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/manglik_per_val"
+        android:layout_below="@+id/ashtakoota_perc"
+        android:layout_marginTop="15dp"/>
+
+//rajju_match_percentage
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rajju Match Percentage : "
+        android:id="@+id/rajju_perc"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_below="@+id/manglik_perc"/>
+
+
+    <TextView
+        android:layout_toRightOf="@+id/rajju_perc"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rajju_per_val"
+        android:layout_below="@+id/manglik_perc"
+        android:layout_marginTop="15dp"/>
+
+//vedha match report
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vedha Match Percentage : "
+        android:id="@+id/vedha_perc"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_below="@+id/rajju_perc"/>
+
+
+    <TextView
+        android:layout_toRightOf="@+id/vedha_perc"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vedha_per_val"
+        android:layout_below="@+id/rajju_perc"
+        android:layout_marginTop="15dp"/>
+
+
+    //match percentage
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match Percentage : "
+        android:id="@+id/perc"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_below="@+id/vedha_perc"/>
+
+
+    <TextView
+        android:layout_toRightOf="@+id/perc"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/per_val"
+        android:layout_below="@+id/vedha_perc"
+        android:layout_marginTop="15dp"/>
+
+</RelativeLayout>

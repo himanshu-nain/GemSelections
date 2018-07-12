@@ -39,7 +39,12 @@ Melting point : 1650±75 °C\n\t
 Fracture : Conchoidal\n\t
 Cleavage : None
 </b>
+
     </string>
+    <string name="facebook_app_id">212370842842907</string>
+    <string name="fb_login_protocol_scheme">fb212370842842907</string>
+
+
     <string name="amethyst2">
         <b>Weight : INR</b>\n
         \t3.25 Ratti Rs. 487.00 INR\n\t4.25 Ratti Rs. 637.00 INR\n\t5.25 Ratti Rs. 787.00 INR\n\t6.25 Ratti Rs. 937.00 INR\n\t7.25 Ratti Rs. 1087.00 INR\n\t8.25 Ratti Rs. 1237.00 INR\n\t9.25 Ratti Rs. 1387.00 INR\n\t10.25 Ratti Rs. 1537.00 INR\n\t11.25 Ratti Rs. 1687.00 INR\n\t12.25 Ratti Rs. 3675.00 INR\n\t13.25 Ratti Rs. 3975.00 INR\n\t14.25 Ratti Rs. 4275.00 INR\n\t15.25 Ratti Rs. 4575.00 INR\n\t16.25 Ratti Rs. 4875.00 INR\n\t17.25 Ratti Rs. 5175.00 INR\n\t18.25 Ratti Rs. 5475.00 INR\n\t19.25 Ratti Rs. 5775.00 INR\n\t20.25 Ratti Rs. 6075.00 INR\n\t21.25 Ratti Rs. 6375.00 INR
@@ -832,5 +837,48 @@ Zircon is found in the most metamorphic rocks as small crystals mostly widely di
 <b>Natural Zircon Rs. 2100.00 Per Ratti.</b>
     </string>
     <string name="software_dev">Made with ❤️ by International Orgaisation Of Software Developers</string>
+    <string name="hara_pukhraj_head">HARA PUKHRAJ | GREEN SAPPHIRE</string>
+    <string name="baingani_pukhraj_head">BAINGANI PUKHRAJ | PURPLE SAPPHIRE</string>
+    <string name="gulabi_pukhraj_head">GULABI PUKHRAJ | PINK SAPPHIRE</string>
+    <string name="moti_head">MOTI | PEARL</string>
+    <string name="pitambari_neelam_head">PUTAMBARI NEELAM | YELLOW BLUE SAPPHIRE</string>
+    <string name="safed_pukhraj_head">SAFED PUKHRAJ | WHITE SAPPHIRE</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="custom_channel_name">Push Notifications Channel</string>
+
+
+    <!--<string name="order_id">Order Id : </string>-->
+    <!--<string name="customer_id">Customer Id : </string>-->
+    <!--<string name="transaction_amount">Transaction Amount : </string>-->
+    <!--<string name="channel_id">Channel Id : </string>-->
+    <!--<string name="industry_type_id">Industry Type Id : </string>-->
+    <!--<string name="website">Website : </string>-->
+    <!--<string name="theme">Theme : </string>-->
+    <!--<string name="cust_email_id">Email Id : </string>-->
+    <!--<string name="cust_mobile_no">Mobile Number : </string>-->
+    <!--<string name="merchant_id">Merchant Id : </string>-->
+    <!--<string name="checksum_generation_url">Checksum Generation URL : </string>-->
+    <!--<string name="checksum_verification_url">Checksum Verification URL : </string>-->
+    <!--<string name="start_transaction">Start Transaction</string>-->
+    <!--<string name="sample_order_id">ORDER</string>-->
+    <!--<string name="sample_customer_id">CUST23657</string>-->
+    <!--<string name="sample_transaction_amount">1</string>-->
+    <!--<string name="sample_channel_id">WAP</string>-->
+    <!--<string name="sample_industry_type_id">Retail</string>-->
+    <!--<string name="sample_website">worldpressplg</string>-->
+    <!--<string name="sample_theme">merchant</string>-->
+    <!--<string name="sample_cust_email_id">abc@gmail.com</string>-->
+    <!--<string name="sample_cust_mobile_no">123</string>-->
+    <!--<string name="sample_merchant_id_staging">WorldP64425807474247</string>-->
+    <!--<string name="sample_checksum_generation_url">https://pguat.paytm.com/merchant-chksum/ChecksumGenerator</string>-->
+    <!--<string name="sample_checksum_verification_url">https://pguat.paytm.com/merchant-chksum/ValidateChksum</string>-->
+
+    <string name="title_activity_new_web_view">NewWebView</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_astrology">AstrologyActivity</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

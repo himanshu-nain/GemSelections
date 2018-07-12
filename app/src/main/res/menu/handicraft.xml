@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/ac_hand_home"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always"
+        android:title=""></item>
+    <item
         app:showAsAction="always"
         android:id="@+id/ac_hand_buy"
         android:title="BUY NOW"/>

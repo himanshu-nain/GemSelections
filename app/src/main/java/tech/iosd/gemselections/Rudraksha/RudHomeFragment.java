@@ -50,7 +50,7 @@ public class RudHomeFragment extends Fragment {
 
                 if (!wasRestored) {
                     YPlayer = player;
-                    YPlayer.cueVideo("bpdj-D6FO4k");
+                    YPlayer.cueVideo("Qd1hHh_vEkA");
                     YPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override
                         public void onFullscreen(boolean b) {

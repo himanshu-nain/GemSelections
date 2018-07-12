@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/western_solar_return_planet_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name : "/>
+
+    <TextView
+        android:id="@+id/western_solar_return_planet_full_degree_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Degree : "/>
+
+    <TextView
+        android:id="@+id/western_solar_return_planet_norm_degree_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Norm Degree : "/>
+
+    <TextView
+        android:id="@+id/western_solar_return_planet_speed_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speed : "/>
+
+    <TextView
+        android:id="@+id/western_solar_return_planet_retro_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retro : "/>
+
+    <TextView
+        android:id="@+id/western_solar_return_planet_sign_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign : "/>
+
+    <TextView
+        android:id="@+id/western_solar_return_planet_house_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="House : "/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"/>
+
+</LinearLayout>

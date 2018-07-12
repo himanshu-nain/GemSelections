@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -18,8 +19,12 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import java.util.ArrayList;
+
+import tech.iosd.gemselections.Adapters.BannerArrayAdapter;
 import tech.iosd.gemselections.JewelleryAlpha.Diamond.DiamondActivity;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Utils.Banner;
 
 /**
  * Created by anonymous on 28/8/17.
@@ -41,8 +46,18 @@ public class GemStuddedActivity extends YouTubeBaseActivity implements YouTubePl
         playerView = (YouTubePlayerView)findViewById(R.id.gemstudded_video);
         playerView.initialize(DEVELOPER_KEY, this);
 
-        ListView listView = (ListView)findViewById(R.id.gemstudded_list);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GemStuddedActivity.this, android.R.layout.simple_list_item_1, items);
+        ArrayList<Banner> arraylist = new ArrayList<Banner>();
+
+        arraylist.add(new Banner( getDrawable(R.drawable.gem_studded_sets),"Gem-Studded Sets"));
+        arraylist.add(new Banner( getDrawable(R.drawable.gem_studded_pendants),"Gem-Studded Pendants"));
+        arraylist.add(new Banner( getDrawable(R.drawable.gem_studded_tops),"Gem-Studded Tops"));
+        arraylist.add(new Banner( getDrawable(R.drawable.gem_studded_rings),"Gem-Studded Rings"));
+        arraylist.add(new Banner( getDrawable(R.drawable.gem_studded_bracelets),"Gem-Studded Bracelets"));
+
+
+        GridView listView = (GridView) findViewById(R.id.gemstudded_list);
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GemStuddedActivity.this, android.R.layout.simple_list_item_1, items);
+        BannerArrayAdapter arrayAdapter= new  BannerArrayAdapter(this,arraylist);
         listView.setAdapter(arrayAdapter);
 
 

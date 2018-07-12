@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="tech.iosd.gemselections"
     android:installLocation="auto">
 
     <uses-sdk
         android:maxSdkVersion="26"
-        android:minSdkVersion="16">
-    </uses-sdk>
+        android:minSdkVersion="16" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-feature android:name="android.hardware.Camera2" android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.Camera2"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <meta-data
+            android:name="tech.iosd.gemselections.Utils.AirShipAutoPilot"
+            android:value="tech.iosd.gemselections.Utils.AirShipAutoPilot" />
 
-        android:theme="@style/AppTheme">
         <provider
             android:name=".DataProviders.MyFileProvider"
             android:authorities="tech.iosd.gemselections.fileprovider"
@@ -321,7 +329,138 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".MainContent.ActivityForDiamonds"></activity>
+        <activity android:name=".MainContent.ActivityForDiamonds" />
+        <activity
+            android:name=".Pukhraj.HaraPukhraj"
+            android:label="Green Sapphire"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/HaraPukhrajTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Pukhraj.BainganiPukhraj"
+            android:label="Purple Sapphire"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/BainganiPukhrajTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Pukhraj.GulabiPukhraj"
+            android:label="Pink Sapphire"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/BainganiPukhrajTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SemiPreciousGems.MotiActivity"
+            android:label="Pearl"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Pukhraj.PitambariNeelam"
+            android:label="Pitambari Neelam"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/NeelamTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Pukhraj.SafedPukhraj"
+            android:label="White Sapphire"
+            android:parentActivityName=".MainContent.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tech.iosd.gemselections.MainContent.MainActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainContent.ReturnPolicyActivity"
+            android:label="Return Policy"
+            android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainContent.FaqIntentActivity" />
+        <activity
+            android:name=".MainContent.NewWebView"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_new_web_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".JewelleryAlpha.DiamondStudded.DiamondStudded"
+            android:label="Diamond Studded"
+            android:parentActivityName=".JewelleryAlpha.JewelleryAlpha"
+            android:theme="@style/AppTheme.Base1" />
+        <activity
+            android:name="com.paytm.pgsdk.PaytmPGActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard"
+            android:screenOrientation="portrait" />
+
+        <receiver
+            android:name=".Utils.SampleAirshipReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.urbanairship.push.CHANNEL_UPDATED" />
+                <action android:name="com.urbanairship.push.OPENED" />
+                <action android:name="com.urbanairship.push.DISMISSED" />
+                <action android:name="com.urbanairship.push.RECEIVED" />
+
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".PaytmActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity android:name=".MainContent.AstrologyActivity" />
+        <activity android:name=".MainContent.WesternAstrologyActivity" />
+        <activity android:name=".MainContent.MatchMakingActivity" />
+        <activity android:name=".MainContent.DailyHoroscopeActivity" />
+        <activity android:name=".MainContent.PdfHoroscopeActivity" />
+        <activity android:name=".MainContent.IndianAstrologyActivity" />
+        <activity android:name=".abhimantrit.Panna" />
+        <activity android:name=".MainContent.MyAccountActivity"
+            android:label="My Account"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Rudraksha.YoutubeDialogActivity"
+            android:theme="@android:style/Theme.Holo.Light.Dialog"
+            >
+        </activity>
     </application>
 
 </manifest>

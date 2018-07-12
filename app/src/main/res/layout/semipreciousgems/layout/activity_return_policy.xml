@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".JewelleryAlpha.JewelleryAlpha"
+    >
+
+    <Toolbar
+        android:id="@+id/return_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:popupTheme="@style/AppTheme.PopupOverlay"
+        tools:ignore="NewApi" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/return_video"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.google.android.youtube.player.YouTubePlayerView>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:fontFamily="serif"
+                android:textColor="#000"
+                android:text="To know about return Policy of Gem selections: khanna Gems private limited watch the video"/>
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
+

@@ -1,8 +1,8 @@
 package tech.iosd.gemselections.JewelleryAlpha.DesignOwn;
 
-import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,8 +18,8 @@ import android.support.v4.content.FileProvider;
 import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,7 +40,6 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,7 +47,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import tech.iosd.gemselections.BuildConfig;
+import tech.iosd.gemselections.Models.CreateOwnModel;
 import tech.iosd.gemselections.R;
+import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 
 import static android.view.View.GONE;
 
@@ -56,23 +57,20 @@ import static android.view.View.GONE;
  * Created by anonymous on 28/8/17.
  */
 
-public class DesignOwnActivity extends AppCompatActivity implements View.OnClickListener
-{
+public class DesignOwnActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static String PATH;
+    Uri uri;
     private ImageView to_upload;
     private Button submit, capture_image;
     private LinearLayout _submit_form;
-    private static String PATH;
-
     private EditText name, email, phone;
-
     private FirebaseAuth mAuth;
-
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
-
-    private FirebaseStorage storage;
+    private StorageReference photoRef;
     private StorageReference mStorageRef;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,26 +81,24 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
         setTitle("Design Your Own Jewellery!");
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
-        mRef = mDatabase.getReference();
-        storage = FirebaseStorage.getInstance();
+        mRef = mDatabase.getReference().child("createownjewellery");
 
-        mStorageRef = storage.getReference("orders");
+        sharedPreferences = getSharedPreferences(SharedPreferencesUtils.sharedPreferencesName, MODE_PRIVATE);
 
-        _submit_form = (LinearLayout)findViewById(R.id.submit_form);
-        to_upload = (ImageView)findViewById(R.id.custom_design_img);
-        capture_image = (Button)findViewById(R.id.capture_img);
+        _submit_form = (LinearLayout) findViewById(R.id.submit_form);
+        to_upload = (ImageView) findViewById(R.id.custom_design_img);
+        capture_image = (Button) findViewById(R.id.capture_img);
         capture_image.setOnClickListener(this);
 
-        name = (EditText)findViewById(R.id.Name);
-        email = (EditText)findViewById(R.id.Email);
-        phone = (EditText)findViewById(R.id.Mobile);
-        submit = (Button)findViewById(R.id.submit);
+        name = (EditText) findViewById(R.id.Name);
+        email = (EditText) findViewById(R.id.Email);
+        phone = (EditText) findViewById(R.id.Mobile);
+        submit = (Button) findViewById(R.id.submit);
         submit.setOnClickListener(this);
-        if(mAuth.getCurrentUser() == null){
+        if (mAuth.getCurrentUser() == null) {
             //do nothing
-        }
-        else {
-            FirebaseUser user= mAuth.getCurrentUser();
+        } else {
+            FirebaseUser user = mAuth.getCurrentUser();
             name.setText(user.getDisplayName());
             email.setText(user.getEmail());
         }
@@ -111,24 +107,29 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        if(v == capture_image){
+        if (v == capture_image) {
             take_pictureALPA();
             capture_image.setText("Retake");
             to_upload.setVisibility(View.VISIBLE);
             _submit_form.setVisibility(View.VISIBLE);
         }
 
-        if(v == submit){
-            String __name  = name.getText().toString();
-            String __email = email.getText().toString();
-            String __mobile = phone.getText().toString();
+        if (v == submit) {
+            final String __name = name.getText().toString();
+            final String __email = email.getText().toString();
+            final String __mobile = phone.getText().toString();
 
-            if(!__name.isEmpty() && isEmailValid(__email)){
+            if (!__name.isEmpty() && isEmailValid(__email) && !__mobile.isEmpty()) {
 
-                try{
+                try {
+
+                    mStorageRef = FirebaseStorage.getInstance().getReference().child("orders");
+                    photoRef = mStorageRef.child(System.currentTimeMillis() + "");
 
                     InputStream is = new FileInputStream(new File(PATH));
-                    UploadTask uploadTask = mStorageRef.putStream(is);
+                    UploadTask uploadTask = photoRef.putStream(is);
+
+
                     uploadTask.addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
@@ -137,7 +138,7 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                                             new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
-
+//
                                                 }
                                             })
                                     .show();
@@ -145,17 +146,38 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                     }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                Log.d("TAGGER", task.getResult().toString());
+                                CreateOwnModel createOwnModel = new CreateOwnModel(__name
+                                        , task.getResult().getDownloadUrl().toString()
+                                        , __email
+                                        , __mobile);
 
+                                mRef.push().setValue(createOwnModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful())
+                                            show_greet();
+
+                                    }
+                                });
+//                                    public CreateOwnModel(String user_name, String image_url, String user_email, String user_umber) {
+//
+//                                this.user_name = user_name;
+//                                this.image_url = image_url;
+//                                this.user_email = user_email;
+//                                this.user_umber = user_umber;
+//                            }
+                            }
                         }
                     });
 
-                }catch (FileNotFoundException e){
+                } catch (FileNotFoundException e) {
 
                 }
 
-                show_greet();
 
-            }else {
+            } else {
                 Toast.makeText(DesignOwnActivity.this, "Enter Valid Credentials", Toast.LENGTH_SHORT).show();
             }
         }
@@ -187,48 +209,48 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                 .create().show();
     }
 
-    public void take_pictureALPA(){
+    public void take_pictureALPA() {
 
-        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode==1){
-            if(grantResults[0]== PermissionChecker.PERMISSION_GRANTED){
+        if (requestCode == 1) {
+            if (grantResults[0] == PermissionChecker.PERMISSION_GRANTED) {
 
-                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},3);
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 3);
 
 
-            }else{
+            } else {
                 Toast.makeText(this, "Permission Denied. Could not proceed further", Toast.LENGTH_SHORT).show();
-                if(_submit_form.getVisibility() == View.VISIBLE){
+                if (_submit_form.getVisibility() == View.VISIBLE) {
                     _submit_form.setVisibility(GONE);
                     to_upload.setVisibility(GONE);
 
                 }
             }
         }
-        if(requestCode==2){
-            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
+        if (requestCode == 2) {
+            if (grantResults[0] == PermissionChecker.PERMISSION_GRANTED) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                 Bitmap mustOpen = BitmapFactory.decodeFile(PATH, options);
                 to_upload.setImageBitmap(mustOpen);
             }
         }
-        if(requestCode==3){
-            if(grantResults[0]==PermissionChecker.PERMISSION_GRANTED){
+        if (requestCode == 3) {
+            if (grantResults[0] == PermissionChecker.PERMISSION_GRANTED) {
 
                 String path = Environment.getExternalStorageDirectory().toString() + "/GemSelections";
 
                 File dir = new File(path);
-                if(!dir.exists()){
+                if (!dir.exists()) {
                     dir.mkdir();
                 }
 
-                String filename = "JPEG_"+new SimpleDateFormat("yyyyMMdd_hhmmss").format(new Date())+".jpg";
+                String filename = "JPEG_" + new SimpleDateFormat("yyyyMMdd_hhmmss").format(new Date()) + ".jpg";
 
                 File image = new File(dir, filename);
 
@@ -239,30 +261,30 @@ public class DesignOwnActivity extends AppCompatActivity implements View.OnClick
                         image);
 
 
-                intent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI);
-                intent.putExtra("return-data",true);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                intent.putExtra("return-data", true);
                 try {
                     startActivityForResult(intent, 1);
                     PATH = image.getAbsolutePath();
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(this, "Please allow all permissions in settings", Toast.LENGTH_SHORT).show();
 
                 }
 
                 load_image();
-            }
-            else{
+            } else {
                 Toast.makeText(this, "Please allow all permissions in settings", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    private void load_image(){
+    private void load_image() {
 
-        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},2);
+        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
 
     }
 
 
 }
+
+

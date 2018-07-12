@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Precious Gemstones" />
+        <item
+            android:id="@+id/ask_question"
+            android:icon="@drawable/ic_forum"
+            android:title="Ask a Question" />
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_forum"
+            android:title="Join the Gem Selections™ Forums" />
+        <item
+            android:id="@+id/nav_live"
+            android:icon="@drawable/ic_live"
+            android:title="Watch Gem Selections™ LIVE" />
+        <item
+            android:id="@+id/read_later"
+            android:icon="@drawable/ic_info"
+            android:title="Saved as Read Later" />
+        <item
+            android:id="@+id/watch_later"
+            android:icon="@drawable/ic_info"
+            android:title="Saved as Watch Later" />
+        <item
+            android:id="@+id/feedback"
+            android:icon="@drawable/ic_info"
+            android:title="Give Feedback" />
+
+    </group>
+</menu>

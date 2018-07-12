@@ -13,9 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import tech.iosd.gemselections.MainContent.MainActivity;
+import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Utils.WebViewActivity;
 
 public class Rudraksha extends AppCompatActivity
@@ -27,6 +30,7 @@ public class Rudraksha extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(tech.iosd.gemselections.R.layout.activity_rudraksha);
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
+      //  toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
@@ -81,6 +85,13 @@ public class Rudraksha extends AppCompatActivity
                         .putExtra("parent","Rudraksha")
             );
             return true;
+        }
+
+        if(id == R.id.ac_rud_home){
+            startActivity(
+                    new Intent(Rudraksha.this, MainActivity.class)
+            );
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

@@ -24,7 +24,7 @@
             android:textSize="18sp"
             android:textColor="#dbb96c00"
             android:textAlignment="center"
-            android:text="You can create your own masterpiece in just few simple steps"
+            android:text="You can create your own masterpiece in just few simple steps\n\n\nClick beautiful picture of the design you want to be made\nWe will get back to you with the pricing for that"
             />
 
         <ImageView

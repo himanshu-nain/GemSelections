@@ -56,11 +56,15 @@
                 android:fontFamily="serif"
                 android:text="\t1. You can design your own jewellery using our app.\n\n\t2. Gem Selections is the only organisation in India to sell Govt. Lab Certified GemStones, Diamonds and Jewellery.\n\n\t3. Buy Jewellery at real - time Gold and Silver rates using the Gem Selections App."/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/jewel_types"
-                android:layout_marginTop="20dp"
+            <GridView
+                android:id="@+id/grid_jwellery"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:footerDividersEnabled="false"
+                android:numColumns="1"
+                android:padding="1dp"/>
+
 
         </LinearLayout>
 

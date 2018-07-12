@@ -39,6 +39,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.urbanairship.Autopilot;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -49,6 +50,7 @@ import java.util.List;
 import java.util.Random;
 
 import tech.iosd.gemselections.Adapters.ConnectAdapter;
+import tech.iosd.gemselections.Astro_RemediesFragment;
 import tech.iosd.gemselections.AuthRelated.LoginActivity;
 import tech.iosd.gemselections.DataProviders.ConnectOptions;
 import tech.iosd.gemselections.Handicrafts.Handicrafts;
@@ -56,12 +58,15 @@ import tech.iosd.gemselections.Ittar.Ittar;
 import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
 import tech.iosd.gemselections.R;
 import tech.iosd.gemselections.Rudraksha.Rudraksha;
+import tech.iosd.gemselections.Utils.SharedPreferencesUtils;
 import tech.iosd.gemselections.Utils.WebViewActivity;
+import tech.iosd.gemselections.abhimantrit.Abhimantrit;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    int k = 0;
     private Bitmap img;
 
     private View header;
@@ -73,19 +78,30 @@ public class MainActivity extends AppCompatActivity
     private FirebaseUser mUser;
     private FragmentManager fragmentManager;
 
+    private boolean isBackPressed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(tech.iosd.gemselections.R.layout.activity_main);
+
+        Autopilot autopilot = new Autopilot();
+        autopilot.allowEarlyTakeOff(getApplicationContext());
+//        autopilot.takeOff();
+
         Toolbar toolbar = (Toolbar) findViewById(tech.iosd.gemselections.R.id.toolbar);
         setSupportActionBar(toolbar);
+
+//        Todo: Make My account Activity
+//        startActivity(new Intent(MainActivity.this,MyAccountActivity.class));
+
 
         fragmentManager = getSupportFragmentManager();
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, tech.iosd.gemselections.R.string.navigation_drawer_open, tech.iosd.gemselections.R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -94,20 +110,46 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(tech.iosd.gemselections.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        header = navigationView.inflateHeaderView(tech.iosd.gemselections.R.layout.nav_header_main);
+        header = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        header.setPadding(10, 10, 10, 10);
         _displayName = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayName);
         _displayEmail = (TextView) header.findViewById(tech.iosd.gemselections.R.id.DisplayEmail);
         _login = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_login);
         _logout = (Button) header.findViewById(tech.iosd.gemselections.R.id.main_logout);
         _logout.setEnabled(false);
+        final Intent intent = getIntent();
+        if (intent.hasExtra("GoogleUserName")) {
+            Bundle extras = getIntent().getExtras();
+            _displayName.setText(extras.getString("GoogleUserName"));
+            _displayEmail.setText(extras.getString("GoogleEmail"));
+            _login.setEnabled(false);
+            _logout.setEnabled(true);
+            k = 1;
+
+        }
 
         _logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                Intent intent = getIntent();
-                finish();
-                startActivity(intent);
+
+                if (k == 1) {
+
+
+                    _login.setEnabled(true);
+                    _logout.setEnabled(false);
+
+                    _displayName.setText("Gem Selections");
+                    _displayEmail.setText("(A Unit of khanna Gems Pvt. Limited)");
+                    drawer.closeDrawers();
+                    k = 0;
+                }
+                if (mUser != null) {
+                    mAuth.signOut();
+                    Intent intent = getIntent();
+                    getSharedPreferences(SharedPreferencesUtils.sharedPreferencesName,MODE_PRIVATE).edit().clear().apply();
+                    finish();
+                    startActivity(intent);
+                }
             }
         });
         _login.setOnClickListener(new View.OnClickListener() {
@@ -118,18 +160,19 @@ public class MainActivity extends AppCompatActivity
                 );
             }
         });
-
-        if (mUser != null) {
-            _displayName.setText(mUser.getDisplayName());
-            _displayEmail.setText(mUser.getEmail());
-            _login.setEnabled(false);
-            _logout.setEnabled(true);
-        } else {
-            if (!_login.isEnabled()) {
-                _login.setEnabled(true);
-            }
-            if (_logout.isEnabled()) {
-                _logout.setEnabled(false);
+        if (k == 0) {
+            if (mUser != null) {
+                _displayName.setText(mUser.getDisplayName());
+                _displayEmail.setText(mUser.getEmail());
+                _login.setEnabled(false);
+                _logout.setEnabled(true);
+            } else {
+                if (!_login.isEnabled()) {
+                    _login.setEnabled(true);
+                }
+                if (_logout.isEnabled()) {
+                    _logout.setEnabled(false);
+                }
             }
         }
 
@@ -138,37 +181,42 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==0)
+        {
+            Fragment fr=new Astro_RemediesFragment();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(tech.iosd.gemselections.R.id.container_main, fr);
+            fragmentTransaction.addToBackStack("Main");
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // Will show transitioning as fragments change
+            fragmentTransaction.commit();
+
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (fragmentManager.getBackStackEntryCount() != 0) {
-                fragmentManager.popBackStack();
-                if (fragmentManager.getBackStackEntryCount()==0) {
 
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setMessage("Do you really want to exit?")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                                }
-                            })
-                            .setTitle("Exit App")
-                            .create().show();
-                } else {
-                    display_selected_item(tech.iosd.gemselections.R.id.nav_home);
-                }
+            if (fragmentManager.getBackStackEntryCount() > 1) {
+                fragmentManager.popBackStack();
+
             } else {
-                super.onBackPressed();
+                new AlertDialog.Builder(this)
+                        .setTitle("Really Exit?")
+                        .setMessage("Are you sure you want to exit?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                //MainActivity.super.onBackPressed();
+                                finish();
+                            }
+                        }).create().show();
             }
         }
 
@@ -259,6 +307,7 @@ public class MainActivity extends AppCompatActivity
                 );
                 break;
 
+
             case tech.iosd.gemselections.R.id.ac_about_us:
                 display_selected_item(tech.iosd.gemselections.R.id.ac_about_us);
                 break;
@@ -282,6 +331,13 @@ public class MainActivity extends AppCompatActivity
             //              .putExtra("parent", "MainActivity")
             //);
             // break;
+
+            case R.id.return_policy:
+                startActivity(new Intent(
+                        MainActivity.this, ReturnPolicyActivity.class
+                ));
+
+                break;
 
             case tech.iosd.gemselections.R.id.ac_exit:
 
@@ -370,7 +426,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 startActivity(
                         new Intent(MainActivity.this, WebViewActivity.class)
-                                .putExtra("URL", "http://www.khannagems.com")
+                                .putExtra("URL", "http://www.khannagems.com/index.php/")
                                 .putExtra("parent", "MainActivity")
                 );
             }
@@ -511,6 +567,9 @@ public class MainActivity extends AppCompatActivity
 
         ISHOMESHOWN = id == tech.iosd.gemselections.R.id.nav_home;
         switch (id) {
+            case R.id.nav_abhimantrit:
+                fragment = new Abhimantrit();
+                break;
             case tech.iosd.gemselections.R.id.nav_home:
                 fragment = new HomeFragment();
                 ISHOMESHOWN = true;
@@ -528,8 +587,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_astro:
                 fragment = new MainAstrologyFragment();
                 break;
+            case R.id.nav_astro_remedies:
+                fragment = new Astro_RemediesFragment();
+                break;
             case R.id.gemstone_recommendation:
-                fragment=new MainGemstoneRecommendationFragment();
+                fragment = new MainGemstoneRecommendationFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_ittar:
@@ -540,6 +602,11 @@ public class MainActivity extends AppCompatActivity
 
             case tech.iosd.gemselections.R.id.nav_japamala:
                 fragment = new MainJapaMalaFragment();
+                break;
+
+            case R.id.nav_daily_horoscopes:
+//                fragment = new DailyHoroscopesFragment();
+                startActivity(new Intent(this, AstrologyActivity.class));
                 break;
 
             case tech.iosd.gemselections.R.id.nav_stoneidols:
@@ -579,11 +646,29 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case tech.iosd.gemselections.R.id.nav_faq:
-
                 startActivity(
                         new Intent(MainActivity.this, FAQsActivity.class)
                 );
+                break;
 
+            case R.id.nav_forum:
+                startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "https://forums.khannagems.com/")
+                                .putExtra("parent", "MainActivity")
+
+                );
+                break;
+            case R.id.nav_live:
+                startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("URL", "https://khannagems.com/gemselectionslive/")
+                                .putExtra("parent", "MainActivity")
+
+                );
+                break;
+            case R.id.nav_sarva_mannokaamna_prapti_yugal:
+                fragment = new SarvaManokaamnaPraptiYugal();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_yantra:
@@ -592,6 +677,10 @@ public class MainActivity extends AppCompatActivity
 
             case tech.iosd.gemselections.R.id.nav_diamond:
                 fragment = new MainDiamondFragment();
+                break;
+
+            case R.id.nav_daily_recommendations:
+                fragment = new DailyRecommendationsFragment();
                 break;
 
             case tech.iosd.gemselections.R.id.nav_jewel:
@@ -667,18 +756,21 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 break;
+
         }
 
         if (fragment != null) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(tech.iosd.gemselections.R.id.container_main, fragment);
             fragmentTransaction.addToBackStack("Main");
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // Will show transitioning as fragments change
             fragmentTransaction.commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(tech.iosd.gemselections.R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(tech.iosd.gemselections.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
 
     private void connect_with_us() {
 
@@ -717,7 +809,7 @@ public class MainActivity extends AppCompatActivity
         };
 
         String[] _links = {
-                "https://www.facebook.com/GemSelections.in/",
+                "https://www.facebook.com/184419964907681/",
                 "https://www.twitter.com/Gem_Selections",
                 "https://www.instagram.com/gemselections/",
                 "https://www.youtube.com/channel/UCt3nkzLE2NKMuwu3V0KQtbw",
@@ -747,7 +839,6 @@ public class MainActivity extends AppCompatActivity
         view.setHasFixedSize(true);
         view.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         view.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
-        ;
 
         List<ConnectOptions> optionses = new ArrayList<>();
         for (int i = 0; i < 13; i++) {
@@ -758,4 +849,6 @@ public class MainActivity extends AppCompatActivity
         ConnectAdapter adapter = new ConnectAdapter(optionses, MainActivity.this);
         view.setAdapter(adapter);
     }
+
+
 }

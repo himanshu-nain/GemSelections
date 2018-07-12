@@ -1,10 +1,15 @@
 package tech.iosd.gemselections.Utils;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -33,6 +38,16 @@ public class WebViewActivity extends AppCompatActivity {
         progressBar = (ProgressBar)findViewById(tech.iosd.gemselections.R.id.webview_progressBar);
 
         webView = (WebView)findViewById(tech.iosd.gemselections.R.id.webview);
+
+        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        if (Build.VERSION.SDK_INT >= 19) {
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        }
+        else {
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
         webView.setVisibility(View.GONE);
         webView.setWebViewClient(new WebViewClient(){
 
@@ -103,6 +118,7 @@ public class WebViewActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

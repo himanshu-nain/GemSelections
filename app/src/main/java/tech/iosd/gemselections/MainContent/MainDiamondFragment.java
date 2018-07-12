@@ -1,5 +1,6 @@
 package tech.iosd.gemselections.MainContent;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,9 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import tech.iosd.gemselections.JewelleryAlpha.JewelleryAlpha;
+import tech.iosd.gemselections.R;
 
 /**
  * Created by anonymous on 27/6/17.
@@ -40,7 +45,26 @@ public class MainDiamondFragment extends Fragment {
 
         ScrollView scrollView = (ScrollView)view.findViewById(tech.iosd.gemselections.R.id.scroll);
         scrollView.setBackground(getResources().getDrawable(tech.iosd.gemselections.R.drawable.back));
+        CardView solitareRing = (CardView) view.findViewById(R.id.diamond_solitare_ring);
+        CardView looseSolitare = (CardView)view.findViewById(R.id.diamond_loose_solitare);
 
+        solitareRing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(
+                        getActivity().getApplicationContext(), JewelleryAlpha.class
+                ));
+            }
+        });
+
+        looseSolitare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(
+                        getActivity().getApplicationContext(),NewWebView.class
+                ));
+            }
+        });
         banner = (ImageView)view.findViewById(tech.iosd.gemselections.R.id.diamond_banner);
         ring = (ImageView)view.findViewById(tech.iosd.gemselections.R.id.diamondring);
         loose = (ImageView)view.findViewById(tech.iosd.gemselections.R.id.diamond);

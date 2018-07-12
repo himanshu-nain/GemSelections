@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/solar_return_native_birth_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Native Birth Date : "/>
+
+    <TextView
+        android:id="@+id/solar_return_native_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Native Birth Age : "/>
+
+    <TextView
+        android:id="@+id/solar_return_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Return Date : "/>
+
+</LinearLayout>

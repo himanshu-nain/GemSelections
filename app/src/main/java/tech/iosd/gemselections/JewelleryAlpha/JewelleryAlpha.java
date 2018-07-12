@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -18,10 +17,10 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import tech.iosd.gemselections.Adapters.JewelTypesAdapater;
+import tech.iosd.gemselections.Adapters.JewelTypesAdapter;
 import tech.iosd.gemselections.DataProviders.JewelTypes;
 import tech.iosd.gemselections.R;
-import tech.iosd.gemselections.Ruby.RubyActivity;
+import tech.iosd.gemselections.Utils.Banner;
 
 /**
  * Created by anonymous on 19/8/17.
@@ -33,8 +32,8 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
     private String[] url = {"","","","",""};
 
     private RecyclerView recyclerView;
-    private JewelTypesAdapater adapater;
-    private List<JewelTypes> typesList;
+    private JewelTypesAdapter adapater;
+    private List<Banner> typesList;
 
     private YouTubePlayerView playerView;
     private static final String DEVELOPER_KEY = "AIzaSyBKlHdEkS-X7Vb2mW2qQSlF1TOxKzWpSU8";
@@ -67,13 +66,21 @@ public class JewelleryAlpha extends YouTubeBaseActivity implements YouTubePlayer
     private void setData() {
 
         typesList = new ArrayList<>();
-        JewelTypes data;
+//        JewelTypes data;
 
-        for(int i=0; i<types.length; ++i){
+        /*for(int i=0; i<types.length; ++i){
             data = new JewelTypes(types[i], url[i]);
             typesList.add(data);
-        }
-        adapater = new JewelTypesAdapater(JewelleryAlpha.this, typesList);
+        }*/
+
+        typesList.add(new Banner( getDrawable(R.drawable.category_create_your_own_cewellery),"Create Your Own Jewellery"));
+        typesList.add(new Banner( getDrawable(R.drawable.category_diamond_jewellery),"Diamond Jewellery"));
+        typesList.add(new Banner( getDrawable(R.drawable.category_victorian_jewellery_),"Victorian Jewellery"));
+        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Gem-Studded Jewellery"));
+//        typesList.add(new Banner( getDrawable(R.drawable.category_gem_studded_jewellery),"Diamond Studded Jewellery"));
+
+
+        adapater = new JewelTypesAdapter(JewelleryAlpha.this, typesList);
         recyclerView.setAdapter(adapater);
 
     }

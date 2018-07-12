@@ -47,7 +47,7 @@ public class BlackStar extends Fragment {
 
                 if (!wasRestored) {
                     YPlayer = player;
-                    YPlayer.cueVideo("y4q_CCLywg");
+                    YPlayer.cueVideo("y4q_CChLywg");
 
                     YPlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override
